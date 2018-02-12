@@ -2,7 +2,7 @@ LINUX_VERSION = "4.9.79"
 
 SRCREV = "33ee56d5927ceff630fbc87e3f5caa409b6ae114"
 
-KERNEL_DEVICETREE ?= " \
+KERNEL_DEVICETREE = " \
     bcm2708-rpi-0-w.dtb \
     bcm2708-rpi-b.dtb \
     bcm2708-rpi-b-plus.dtb \
@@ -135,4 +135,61 @@ KERNEL_DEVICETREE ?= " \
     overlays/w1-gpio.dtbo \
     overlays/w1-gpio-pullup.dtbo \
     overlays/wittypi.dtbo \
+    overlays/ratt-ioexpander.dtbo \
+    overlays/ratt-lcd.dtbo \
 "
+FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+SRC_URI += "file://0001-ratt-dtbo.patch"
+
+do_configure_prepend() {
+	kernel_configure_variable I2C y
+	kernel_configure_variable I2C_BOARDINFO y
+	kernel_configure_variable I2C_COMPAT y
+	kernel_configure_variable I2C_CHARDEV y
+	kernel_configure_variable GPIO_PCA953X y
+	kernel_configure_variable GPIO_PCA953X_IRQ y
+		      
+	kernel_configure_variable SPI_BCM2835 y
+	kernel_configure_variable SPI_BCM2835AUX y
+	kernel_configure_variable SPI_SPIDEV y
+
+	kernel_configure_variable FB_CFB_COPYAREA y
+	kernel_configure_variable FB_CFB_IMAGEBLIT y
+	kernel_configure_variable FB_SYS_FILLRECT y
+	kernel_configure_variable FB_SYS_COPYAREA y
+	kernel_configure_variable FB_SYS_IMAGEBLIT y
+	kernel_configure_variable FB_SYS_FOPS y
+	kernel_configure_variable FB_DEFERRED_IO y
+	kernel_configure_variable FB_TFT y
+	kernel_configure_variable FB_TFT_AGM1264K_FL y
+	kernel_configure_variable FB_TFT_BD663474 y
+	kernel_configure_variable FB_TFT_HX8340BN y
+	kernel_configure_variable FB_TFT_HX8347D y
+	kernel_configure_variable FB_TFT_HX8353D y
+	kernel_configure_variable FB_TFT_HX8357D y
+	kernel_configure_variable FB_TFT_ILI9163 y
+	kernel_configure_variable FB_TFT_ILI9320 y
+	kernel_configure_variable FB_TFT_ILI9325 y
+	kernel_configure_variable FB_TFT_ILI9340 y
+	kernel_configure_variable FB_TFT_ILI9341 y
+	kernel_configure_variable FB_TFT_ILI9481 y
+	kernel_configure_variable FB_TFT_ILI9486 y
+	kernel_configure_variable FB_TFT_PCD8544 y
+	kernel_configure_variable FB_TFT_RA8875 y
+	kernel_configure_variable FB_TFT_S6D02A1 y
+	kernel_configure_variable FB_TFT_S6D1121 y
+	kernel_configure_variable FB_TFT_SSD1289 y
+	kernel_configure_variable FB_TFT_SSD1306 y
+	kernel_configure_variable FB_TFT_SSD1331 y
+	kernel_configure_variable FB_TFT_SSD1351 y
+	kernel_configure_variable FB_TFT_ST7735R y
+	kernel_configure_variable FB_TFT_ST7789V y
+	kernel_configure_variable FB_TFT_TINYLCD y
+	kernel_configure_variable FB_TFT_TLS8204 y
+	kernel_configure_variable FB_TFT_UC1701 y
+	kernel_configure_variable FB_TFT_UPD161704 y
+	kernel_configure_variable FB_TFT_WATTEROTT y
+	kernel_configure_variable FB_FLEX y
+	kernel_configure_variable FB_TFT_FBTFT_DEVICE y
+
+}
