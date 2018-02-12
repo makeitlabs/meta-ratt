@@ -38,5 +38,5 @@ kernel=zImage
 # enable_uart=1
 
 # disable bluetooth and restore uart0/ttyAMA0 to GPIO 14/15
-dtoverlay=pi3-disable-bt
+dtoverlay=zImage-pi3-disable-bt
 
