@@ -1,5 +1,5 @@
 #!/bin/sh
 
-export OETMP="/tmp/rpi-rocko"
+export OETMP="/u/rpi/tmp"
 export MACHINE="raspberrypi0-wifi"
 
