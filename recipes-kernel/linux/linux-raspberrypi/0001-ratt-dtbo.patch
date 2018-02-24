@@ -18,13 +18,14 @@ new file mode 100644
 index 0000000..fdbda21
 --- /dev/null
 +++ b/arch/arm/boot/dts/overlays/ratt-ioexpander-overlay.dts
-@@ -0,0 +1,101 @@
+@@ -0,0 +1,102 @@
 +/*
 + * MakeIt Labs RATT: RFID All The Things
 + * steve.richardson@makeitlabs.com
 + * -----------------------------------------------------------------
 + * single PCA9539 16-bit I2C I/O Expander - I2C addr 0x74
-+ * resources: I2C1 with interrupt on GPIO4 (active low)
++ * resources: I2C1 with /interrupt on GPIO17 (active low)
++ *                      /reset on GPIO4 (active low)
 + *
 + * also contains the hooks for gpio-keys to assign expander gpio inputs
 + * to keypad keys
@@ -47,7 +48,7 @@ index 0000000..fdbda21
 +		target = <&gpio>;
 +		__overlay__ {
 +			pca9539_pins: pca9539_pins {
-+				brcm,pins = <4>;
++				brcm,pins = <17>;
 +				brcm,function = <0>;
 +			};
 +		};
@@ -68,7 +69,7 @@ index 0000000..fdbda21
 +
 +				#interrupt-cells=<2>;
 +				interrupt-parent = <&gpio>;
-+				interrupts = <4 8>;
++				interrupts = <17 8>;
 +				interrupt-controller;
 +
 +				status = "okay";
@@ -136,7 +137,7 @@ index 0000000..18d7157
 + * display rotation=270 degrees, wide format with pin headers on right hand side
 + *
 + * resources: SPI0 (MISO=GPIO9, MOSI=GPIO10, CS0=GPIO8)
-+ *            Reset=GPIO25, D/C=GPIO24, BACKLIGHT=GPIO23
++ *            Reset=GPIO23, D/C=GPIO24, BACKLIGHT=GPIO5
 + */
 +
 +/dts-v1/;
@@ -164,7 +165,7 @@ index 0000000..18d7157
 +		target = <&gpio>;
 +		__overlay__ {
 +			rpi_display_pins: rpi_display_pins {
-+				brcm,pins = <23 24 25>;
++				brcm,pins = <5 23 24>;
 +				brcm,function = <1 1 1>; /* out out out */
 +			};
 +		};
@@ -187,9 +188,9 @@ index 0000000..18d7157
 +				/* bgr; not needed now? */
 +				fps = <20>;
 +				buswidth = <8>;
-+				reset-gpios = <&gpio 25 0>;
++				led-gpios = <&gpio 5 1>;
++				reset-gpios = <&gpio 23 0>;
 +				dc-gpios = <&gpio 24 0>;
-+				led-gpios = <&gpio 23 1>;
 +				debug = <1>;
 +			};
 +		};
