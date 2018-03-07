@@ -197,9 +197,9 @@ if [ -f ${SRCDIR}/u-boot.bin ]; then
 	fi
 fi
 
-if [ -f ./config.txt ]; then
+if [ -f ./skel_boot/config.txt ]; then
 	echo "Copying local config.txt to card"
-	sudo cp ./config.txt /media/card
+	sudo cp ./skel_boot/config.txt /media/card
 
 	if [ $? -ne 0 ]; then
 		echo "Error copying local config.txt to card"
@@ -208,9 +208,9 @@ if [ -f ./config.txt ]; then
 	fi
 fi
   
-if [ -f ./cmdline.txt ]; then
+if [ -f ./skel_boot/cmdline.txt ]; then
 	echo "Copying local cmdline.txt to card"
-	sudo cp ./cmdline.txt /media/card
+	sudo cp ./skel_boot/cmdline.txt /media/card
 
 	if [ $? -ne 0 ]; then
 		echo "Error copying local cmdline.txt to card"
