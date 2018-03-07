@@ -189,5 +189,6 @@ if [ "x$runlevel" != "xS" ] && [ ! -x /etc/rc${runlevel}.d/S??xserver-nodm ]; th
         startup_msg "boot complete"
         TMPDIR=/mnt/.psplash psplash-write "QUIT" || true
     	umount -l /mnt/.psplash
+        /usr/bin/reset > /dev/tty0
     fi
 fi
