@@ -1,0 +1,27 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          halt
+# Required-Start:
+# Required-Stop:
+# Default-Start:
+# Default-Stop:      0
+# Short-Description: Execute the halt command.
+# Description:
+### END INIT INFO
+
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+
+/bin/sync
+/bin/sync
+/bin/sync
+sleep 1
+halt -d -f
+
+sleep 1
+
+# this shuts RATT off if it's on battery
+echo 0 > /sys/class/gpio/gpio27/value
+
+# this will shut off the Pi as a last resort
+halt -p
+: exit 0
