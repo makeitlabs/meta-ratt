@@ -1,5 +1,5 @@
-LICENSE = "CLOSED"
-LIC_FILES_CHKSUM = ""
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=c7471d0b951cf30fb6b9fa1fbfd55d12"
 
 SRC_URI = ""
 
@@ -26,11 +26,6 @@ do_compile() {
 }
 
 do_install() {
-  install -d ${D}${prefix}/ratt
-  install -d ${D}${prefix}/ratt/audio
-  install -d ${D}${prefix}/ratt/images
-  install ${S}/*.py ${D}${prefix}/ratt
-  install ${S}/*.qml ${D}${prefix}/ratt
-  install ${S}/audio/*.wav ${D}${prefix}/ratt/audio
-  install ${S}/images/*.png ${D}${prefix}/ratt/images
+  mkdir -p ${D}${prefix}/ratt
+  cp -r ${S}/. ${D}${prefix}/ratt
 }
