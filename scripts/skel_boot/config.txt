@@ -11,7 +11,7 @@ hdmi_group=2
 hdmi_mode=16
 
 #uncomment to overclock the arm. 700 MHz is the default.
-#arm_freq=800
+arm_freq=800
 
 # set gpu memory
 gpu_mem=64
@@ -29,7 +29,7 @@ dtoverlay=zImage-ratt-ioexpander
 # i2s audio (from pimoroni/adafruit, need to unwind this to make it our own)
 dtparam=i2s=on
 dtoverlay=zImage-hifiberry-dac
-#dtoverlay=i2s-mmap
+dtoverlay=i2s-mmap
 
 # custom kernel for early boot text and other tweaks
 kernel=zImage
