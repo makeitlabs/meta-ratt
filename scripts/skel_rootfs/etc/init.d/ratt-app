@@ -19,7 +19,7 @@ DAEMON=/usr/ratt/$NAME
 PIDFILE=/var/run/$NAME.pid
 DAEMON_ARGS="-platform eglfs"
 DAEMON_DIR=/usr/ratt
-SCRIPTNAME=/etc/init.d/$NAME
+SCRIPTNAME=/etc/init.d/ratt-app
 
 # Exit if the package is not installed
 [ -x "$DAEMON" ] || exit 0
