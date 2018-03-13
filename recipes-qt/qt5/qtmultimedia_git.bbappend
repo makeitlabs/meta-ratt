@@ -4,4 +4,4 @@ SRC_URI += "file://0001-alsa-params.patch;patch=1"
 
 PACKAGECONFIG = "alsa"
 
-PR = "5"
+PR = "6"
