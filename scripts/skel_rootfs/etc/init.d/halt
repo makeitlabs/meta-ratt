@@ -19,9 +19,9 @@ halt -d -f
 
 sleep 1
 
-# this shuts RATT off if it's on battery
-echo 0 > /sys/class/gpio/gpio27/value
+# this would shut RATT off if it's on battery
+# echo 0 > /sys/class/gpio/gpio27/value
 
-# this will shut off the Pi as a last resort
+# instead shut the pi down, which should release GPIO27 and turn everything off
 halt -p
 : exit 0
