@@ -4,17 +4,21 @@ LICENSE = "MIT"
 
 IMAGE_LINGUAS = "en-us"
 
-inherit core-image
+inherit image
 
 DEPENDS += "bcm2835-bootfiles"
 
 CORE_OS = " \
     firewall \
     iptables \
+    kernel-modules \
     ntp \
     ntp-tickadj \
     openssh openssh-keygen openssh-sftp-server \
+    packagegroup-core-boot \
     procps \
+    rndaddtoentcnt \
+    rng-tools \
     term-prompt \
     tzdata \
 "
@@ -22,8 +26,7 @@ CORE_OS = " \
 WIFI_SUPPORT = " \
     crda \
     iw \
-    linux-firmware-bcm43430 \
-    wireless-tools \
+    linux-firmware-raspbian \
     wpa-supplicant \
 "
 
@@ -38,9 +41,10 @@ ALSA += " \
     libswresample \
     libswscale \
     alsa-conf \
+    alsa-state \
     alsa-utils \
     alsa-utils-scripts \
- "
+"
 
 IMAGE_INSTALL += " \
     ${ALSA} \
@@ -48,7 +52,7 @@ IMAGE_INSTALL += " \
     ${WIFI_SUPPORT} \
     iqaudio-mute \
     pianobar \
- "
+"
 
 set_local_timezone() {
     ln -sf /usr/share/zoneinfo/EST5EDT ${IMAGE_ROOTFS}/etc/localtime
