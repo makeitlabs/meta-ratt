@@ -1,0 +1,37 @@
+# http://rpf.io/configtxt
+
+# uncomment if you get no picture on HDMI for a default "safe" mode
+#hdmi_safe=1
+
+hdmi_force_hotplug=1
+
+# force 1024x768
+hdmi_group=2
+hdmi_mode=16
+
+#uncomment to overclock the arm. 700 MHz is the default.
+#arm_freq=800
+
+# set gpu memory
+gpu_mem=64
+
+# spi lcd
+dtparam=spi=on
+dtoverlay=ratt-lcd
+
+# i2c expander, i2c bus at 400kHz
+# also contains gpio-keys mapping for keypad keys
+dtparam=i2c_arm=on
+dtparam=i2c_arm_baudrate=400000
+dtoverlay=ratt-ioexpander
+
+# i2s audio
+dtparam=i2s=on
+dtoverlay=hifiberry-dac
+dtoverlay=i2s-mmap
+
+# enable uart for serial port
+enable_uart=1
+
+# disable bluetooth and restore uart0/ttyAMA0 to GPIO 14/15
+dtoverlay=pi3-disable-bt

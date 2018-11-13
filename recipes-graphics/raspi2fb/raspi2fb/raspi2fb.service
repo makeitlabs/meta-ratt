@@ -1,0 +1,11 @@
+[Unit]
+Description=Framebuffer Copy Utility
+
+[Service]
+ExecStart=/usr/bin/raspi2fb --copyrect --rectx=432 --recty=10
+StandardOutput=null
+
+[Install]
+WantedBy=multi-user.target
+Alias=raspi2fb.service
+

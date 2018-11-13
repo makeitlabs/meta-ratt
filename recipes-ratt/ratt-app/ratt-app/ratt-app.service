@@ -1,0 +1,12 @@
+[Unit]
+Description=RATT Application
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/usr/ratt
+ExecStart=/usr/bin/python main.py -platform eglfs
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
