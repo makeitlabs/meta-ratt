@@ -34,4 +34,4 @@ dtoverlay=i2s-mmap
 enable_uart=1
 
 # disable bluetooth and restore uart0/ttyAMA0 to GPIO 14/15
-dtoverlay=pi3-disable-bt
+#dtoverlay=pi3-disable-bt
