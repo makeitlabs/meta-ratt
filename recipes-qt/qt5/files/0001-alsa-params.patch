@@ -1,14 +1,3 @@
-From 167884ebbd336834b9b524d2b57c6ce8dc562c20 Mon Sep 17 00:00:00 2001
-From: Steve Richardson <tangentaudio@gmail.com>
-Date: Mon, 12 Mar 2018 18:10:48 -0700
-Subject: [PATCH] alsa params
-
----
- src/plugins/alsa/qalsaaudiooutput.cpp | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
-
-diff --git a/src/plugins/alsa/qalsaaudiooutput.cpp b/src/plugins/alsa/qalsaaudiooutput.cpp
-index cd97ae8..c258ba3 100644
 --- a/src/plugins/alsa/qalsaaudiooutput.cpp
 +++ b/src/plugins/alsa/qalsaaudiooutput.cpp
 @@ -53,10 +53,11 @@
@@ -30,8 +19,8 @@ index cd97ae8..c258ba3 100644
      period_size = 0;
 -    buffer_time = 100000;
 -    period_time = 20000;
-+    buffer_time = 200000;
-+    period_time = 40000;
++    buffer_time = 500000;
++    period_time = 83333;
      totalTimeValue = 0;
      intervalTime = 1000;
      audioBuffer = 0;
