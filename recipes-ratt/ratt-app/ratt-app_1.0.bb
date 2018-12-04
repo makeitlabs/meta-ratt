@@ -13,14 +13,9 @@ SRC_URI += "\
 	file://ratt-app.service \
 "
 
-
 # enable service in systemd
 SYSTEMD_SERVICE_${PN} = "ratt-app.service"
 SYSTEMD_AUTO_ENABLE_${PN} = "enable"
-
-FILES_${PN} += " ${systemd_unitdir}/system/ratt-app.service"
-FILES_${PN} += " ${prefix}/ratt"
-
 
 do_unpack() {
   echo "rsyncing source from ${APP_DIR} to ${WORKDIR}"
@@ -31,6 +26,9 @@ do_install() {
   mkdir -p ${D}${prefix}/ratt
   cp -r ${S}/. ${D}${prefix}/ratt
 
+  install -d ${D}${sysconfdir}/ratt
+  install -m 0644 ${S}/ratt-example.ini ${D}${sysconfdir}/ratt/ratt.ini
+
   if ${@bb.utils.contains('DISTRO_FEATURES','systemd','true','false',d)}; then
      install -d ${D}/${systemd_unitdir}/system
 
@@ -39,3 +37,6 @@ do_install() {
   fi
 
 }
+
+FILES_${PN} += " ${systemd_unitdir}/system/ratt-app.service"
+FILES_${PN} += " ${prefix}/ratt"
