@@ -26,8 +26,8 @@ do_install() {
   mkdir -p ${D}${prefix}/ratt
   cp -r ${S}/. ${D}${prefix}/ratt
 
-  install -d ${D}${sysconfdir}/ratt
-  install -m 0644 ${S}/ratt-example.ini ${D}${sysconfdir}/ratt/ratt.ini
+  install -d ${D}/data/ratt
+  install -m 0644 ${S}/ratt-example.ini ${D}/data/ratt/ratt.ini
 
   if ${@bb.utils.contains('DISTRO_FEATURES','systemd','true','false',d)}; then
      install -d ${D}/${systemd_unitdir}/system
@@ -40,3 +40,4 @@ do_install() {
 
 FILES_${PN} += " ${systemd_unitdir}/system/ratt-app.service"
 FILES_${PN} += " ${prefix}/ratt"
+FILES_${PN} += " /data/ratt/ratt.ini"
