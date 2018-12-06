@@ -15,6 +15,9 @@ CORE_OS = " \
     packagegroup-core-boot \
     term-prompt \
     tzdata \
+    ntp \
+    ntp-tickadj \
+    coreutils \
 "
 
 WIFI_SUPPORT = " \
@@ -24,14 +27,16 @@ WIFI_SUPPORT = " \
     wpa-supplicant \
 "
 
+PYTHON_SUPPORT = " \
+    python \
+    python-modules \
+"
+
 DEV_SDK_INSTALL = " \
     binutils \
     binutils-symlinks \
-    coreutils \
     cpp \
     cpp-symlinks \
-    diffutils \
-    file \
     g++ \
     g++-symlinks \
     gcc \
@@ -39,7 +44,6 @@ DEV_SDK_INSTALL = " \
     gdb \
     gdbserver \
     gettext \
-    git \
     ldd \
     libstdc++ \
     libstdc++-dev \
@@ -50,23 +54,25 @@ DEV_SDK_INSTALL = " \
 "
 
 DEV_EXTRAS = " \
-    ntp \
-    ntp-tickadj \
+    git \
+    file \
+    diffutils \
     serialecho  \
     spiloop \
+    i2c-tools \
+    devmem2 \
 "
 
 EXTRA_TOOLS_INSTALL = " \
     bzip2 \
-    devmem2 \
     dosfstools \
     ethtool \
     fbset \
     findutils \
-    i2c-tools \
     iperf3 \
     iproute2 \
     iptables \
+    htop \
     less \
     nano \
     netcat \
@@ -75,25 +81,28 @@ EXTRA_TOOLS_INSTALL = " \
     rng-tools \
     sysfsutils \
     tcpdump \
+    tmux \
     unzip \
     util-linux \
     wget \
+    zile \
     zip \
 "
 
 RPI_STUFF = " \
-    omxplayer \
     raspi2fb \
     userland \
 "
 
+
 IMAGE_INSTALL += " \
     ${CORE_OS} \
-    ${DEV_SDK_INSTALL} \
+    ${PYTHON_SUPPORT} \
     ${DEV_EXTRAS} \
     ${EXTRA_TOOLS_INSTALL} \
     ${RPI_STUFF} \
     ${WIFI_SUPPORT} \
+    ${DEV_SDK_INSTALL} \
 "
 
 set_local_timezone() {

@@ -18,6 +18,8 @@ RATT_EXTRAS = " \
     alsa-tools \
     wireless-tools \
     sudo \
+    cifs-utils \
+    dietsplash \
 "
 
 RATT_APP = " \
@@ -37,6 +39,6 @@ QT5_PKGS += " \
 
 IMAGE_FEATURES_remove += " psplash"
 IMAGE_FEATURES_remove += " package-management"
-
+IMAGE_INSTALL_remove += " cups ffmpeg"
 export IMAGE_BASENAME = "ratt-image"
 

@@ -23,6 +23,15 @@ FONTS = " \
     fontconfig \
     fontconfig-utils \
     ttf-bitstream-vera \
+    ttf-dejavu-sans \
+    ttf-dejavu-sans-mono \
+    ttf-dejavu-sans-condensed \
+    ttf-dejavu-common \
+    ttf-liberation-mono \
+    ttf-liberation-sans \
+    ttf-ubuntu-mono \
+    ttf-ubuntu-sans \
+    packagegroup-fonts-truetype \
 "
 
 TSLIB = " \
