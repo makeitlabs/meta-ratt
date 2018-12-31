@@ -24,7 +24,7 @@ do_unpack() {
 
 do_install() {
   mkdir -p ${D}${prefix}/ratt
-  cp -r ${S}/. ${D}${prefix}/ratt
+  cp -r ${WORKDIR}/app/. ${D}${prefix}/ratt
 
   install -d ${D}/data/ratt
   install -m 0644 ${S}/ratt-example.ini ${D}/data/ratt/ratt.ini
