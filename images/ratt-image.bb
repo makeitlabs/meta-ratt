@@ -20,6 +20,8 @@ RATT_EXTRAS = " \
     sudo \
     cifs-utils \
     dietsplash \
+    tmux \
+    espeak \
 "
 
 RATT_APP = " \
