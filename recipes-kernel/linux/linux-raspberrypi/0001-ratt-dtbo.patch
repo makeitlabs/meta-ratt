@@ -187,7 +187,7 @@ index 0000000..18d7157
 +				rotate = <270>;
 +				fps = <20>;
 +				buswidth = <8>;
-+				led-gpios = <&gpio 5 1>;
++				led-gpios = <&gpio 5 0>;
 +				reset-gpios = <&gpio 23 0>;
 +				dc-gpios = <&gpio 24 0>;
 +				debug = <0>;
