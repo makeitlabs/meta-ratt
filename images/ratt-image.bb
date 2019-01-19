@@ -19,7 +19,6 @@ RATT_EXTRAS = " \
     wireless-tools \
     sudo \
     cifs-utils \
-    dietsplash \
     tmux \
     espeak \
 "
@@ -39,7 +38,6 @@ QT5_PKGS += " \
     python-pyqt5 \
 "
 
-IMAGE_FEATURES_remove += " psplash"
 IMAGE_FEATURES_remove += " package-management"
 IMAGE_INSTALL_remove += " cups ffmpeg"
 export IMAGE_BASENAME = "ratt-image"
